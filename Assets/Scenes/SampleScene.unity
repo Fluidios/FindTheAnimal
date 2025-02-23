@@ -123,6 +123,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &181165016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181165017}
+  - component: {fileID: 181165018}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181165017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181165016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2000050229}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &181165018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181165016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27588dc1cc8550a44a7f38f456313427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _game: {fileID: 2000050228}
+  _sourcePrefab: {fileID: 9092460320725820654, guid: 99ca65e8d7b7023469be4058a8624962, type: 3}
+  _correctPairClip: {fileID: 8300000, guid: 7f0a2f902f68e8f4b9e0faa5507180ce, type: 3}
+  _wrongPairClip: {fileID: 8300000, guid: d8261d257f18e7d40aaec0f77b9c987c, type: 3}
+  _winClip: {fileID: 8300000, guid: 06c2e7dfd250ddd439f124fafa64a75a, type: 3}
+  _loseClip: {fileID: 8300000, guid: 22119f6140b19494ba1dbb40c4cf6e72, type: 3}
+  _exposeCardClip: {fileID: 8300000, guid: 6fcf9abfbd184f042848e22d7da576a0, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +854,7 @@ MonoBehaviour:
   - {fileID: 8737523211824672784, guid: 482ca108aeb72e1468d0ba6be963a1c5, type: 3}
   _cardsParent: {fileID: 1222836663}
   _cardMaxSize: 4
-  _levelSize: {x: 3, y: 2}
+  _levelSize: {x: 3, y: 4}
 --- !u!4 &2000050229
 Transform:
   m_ObjectHideFlags: 0
@@ -817,6 +868,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1222836663}
+  - {fileID: 181165017}
   m_Father: {fileID: 2103552148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

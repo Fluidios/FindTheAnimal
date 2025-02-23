@@ -1,0 +1,16 @@
+{
+    "name": "MatchCardsGame",
+    "rootNamespace": "MatchCardsGame",
+    "references": [
+        "GUID:57d2eabfa5edd064daad537404f1d764"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
