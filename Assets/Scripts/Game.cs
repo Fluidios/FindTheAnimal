@@ -8,6 +8,8 @@ namespace Core
     public abstract class Game : MonoBehaviour
     {
         public abstract bool GameSaveExists {get;}
+        public Action OnGameStarts;
+        public Action OnGameStartsFromSave;
         public Action<bool> OnGameEnds;
         public abstract void StartGameLevel();
         public abstract void LoadGameLevelFromSave();

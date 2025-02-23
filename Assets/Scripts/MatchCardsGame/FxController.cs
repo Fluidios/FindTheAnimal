@@ -40,7 +40,7 @@ namespace MatchCardsGame
         private IEnumerator PlayFx(ParticleSystem fx)
         {
             yield return new WaitForSeconds(0.5f); //give time for the card rotation animation
-            fx.Play();
+            if(fx != null) fx.Play();
         }
     }
 }

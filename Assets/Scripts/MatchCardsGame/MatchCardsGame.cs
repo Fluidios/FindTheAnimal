@@ -72,6 +72,7 @@ namespace MatchCardsGame
                         _cardPairPositions[_cardViews[x, y].CardName].Add(new Vector2Int(x, y));
                     }
                 }
+                OnGameStarts?.Invoke();
             }
             else 
             {
@@ -111,6 +112,12 @@ namespace MatchCardsGame
                     }
                 }
                 StartCoroutine(HideAllCardsAtStart());
+                OnGameStartsFromSave?.Invoke();
+            }
+            else 
+            {
+                //in case the level save not exist, end the game as loose
+                OnGameEnds?.Invoke(false);
             }
         }
         public override void ClearGameLevel()
