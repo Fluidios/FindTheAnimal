@@ -85,19 +85,19 @@ namespace MatchCardsGame
             if(GameSaveExists)
             {
                 //load level size & init
-                _levelSize = GetSavedLevelSize();
-                _cardViews = new CardView[_levelSize.x, _levelSize.y];
-                float appropriateCardSize = _cardMaxSize * 2 / Mathf.Max(_levelSize.x, _levelSize.y); //minimal game is 2x2, any size should match into the size of 2x2 game, by scalind cards down
-                Vector2 cardsOrigin = new Vector2(-appropriateCardSize * (_levelSize.x/2), -appropriateCardSize * (_levelSize.y/2));
-                if(_levelSize.x % 2 == 0) cardsOrigin += Vector2.right * appropriateCardSize/2;
-                if(_levelSize.y % 2 == 0) cardsOrigin += Vector2.up * appropriateCardSize/2;
+                var levelSize = GetSavedLevelSize();
+                _cardViews = new CardView[levelSize.x, levelSize.y];
+                float appropriateCardSize = _cardMaxSize * 2 / Mathf.Max(levelSize.x, levelSize.y); //minimal game is 2x2, any size should match into the size of 2x2 game, by scalind cards down
+                Vector2 cardsOrigin = new Vector2(-appropriateCardSize * (levelSize.x/2), -appropriateCardSize * (levelSize.y/2));
+                if(levelSize.x % 2 == 0) cardsOrigin += Vector2.right * appropriateCardSize/2;
+                if(levelSize.y % 2 == 0) cardsOrigin += Vector2.up * appropriateCardSize/2;
                 //fill dictionary to handle fast access to card variants by name
                 Dictionary<string, GameObject> cardVariants = new Dictionary<string, GameObject>();
                 foreach(var card in _cards) cardVariants.Add(card.name, card);
                 //generate level, skip already opened card pairs
-                for(int y = 0; y < _levelSize.y; y++)
+                for(int y = 0; y < levelSize.y; y++)
                 {
-                    for(int x = 0; x < _levelSize.x; x++)
+                    for(int x = 0; x < levelSize.x; x++)
                     {
                         var savedCard = GetSavedCard(new Vector2Int(x, y));
                         if(string.IsNullOrEmpty(savedCard) || !cardVariants.ContainsKey(savedCard)) continue; //save break or this card pair already was found by player
