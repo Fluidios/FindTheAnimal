@@ -9,9 +9,11 @@ namespace MatchCardsGame
     {
         [SerializeField] private Transform _cardContentTransform;
         [SerializeField] private Animator _animator;
+        [SerializeField] private ParticleSystem _fx;
         private bool _cardIsExposed = false;
         public Action<CardView> OnCardExposed;
         public string CardName { get; private set; }
+        public ParticleSystem Fx => _fx;
 
         public void SetCardContent(GameObject cardContent)
         {
@@ -21,6 +23,8 @@ namespace MatchCardsGame
         public void SetCardSize(float size)
         {
             transform.localScale = new Vector3(size, size, 1);
+            var shape = _fx.shape;
+            shape.scale = new Vector3(size, size, 1);
         }
         public void Show()
         {
