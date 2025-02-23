@@ -20,6 +20,9 @@ namespace MatchCardsGame
         [SerializeField] private Image _comboTimerDisplay;
         [SerializeField] private TextMeshProUGUI _addedScoreTextPrefab;
         [SerializeField] private RectTransform _canvasTransform;
+        [SerializeField] private GameObject _endLevelScreen;
+        [SerializeField] private TextMeshProUGUI _endLevelScoreText;
+        [SerializeField] private TextMeshProUGUI _endLevelBestScoreText;
 
         private int _score;
         private int _combo = 1;
@@ -66,6 +69,17 @@ namespace MatchCardsGame
         }
         private void OnGameEnds(bool isWin)
         {
+            var bestScore = PlayerPrefs.GetInt(string.Format("{0}_best_score", _game.GetType().Name), 0);
+            if(_score > bestScore)
+            {
+                PlayerPrefs.SetInt(string.Format("{0}_best_score", _game.GetType().Name), _score);
+                bestScore = _score;
+            }
+
+            _endLevelScreen.SetActive(true);
+            _endLevelScoreText.text = string.Format("Current score: {0}", _score);
+            _endLevelBestScoreText.text = string.Format("Best Score: {0}", bestScore);
+
             _score = 0;
             SavedScore = 0;
             _combo = 1;

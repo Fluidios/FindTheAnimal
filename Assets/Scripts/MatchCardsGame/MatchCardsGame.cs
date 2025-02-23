@@ -258,8 +258,8 @@ namespace MatchCardsGame
         private IEnumerator DestroyExposedCardsPair(CardView card1, CardView card2)
         {
             yield return new WaitForSeconds(1);//give time to show exposed cards
-            Destroy(card1.gameObject);
-            Destroy(card2.gameObject);
+            if(card1 != null) Destroy(card1.gameObject);
+            if(card2 != null) Destroy(card2.gameObject);
             if(_cardPairPositions.Count <= 0)
             {
                 OnGameEnds?.Invoke(true);
