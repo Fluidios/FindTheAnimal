@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.6
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1964,7 +1964,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2889,8 +2889,8 @@ MonoBehaviour:
   - {fileID: 43222170749312891, guid: bd476117d91c15a44b4fbe91dff1c94e, type: 3}
   - {fileID: 8737523211824672784, guid: 482ca108aeb72e1468d0ba6be963a1c5, type: 3}
   _cardsParent: {fileID: 1222836663}
-  _cardMaxSize: 4
-  _levelSize: {x: 4, y: 3}
+  _cardMaxSize: 3.5
+  _levelSize: {x: 2, y: 3}
 --- !u!4 &2000050229
 Transform:
   m_ObjectHideFlags: 0
