@@ -10,7 +10,8 @@ namespace MatchCardsGame
         [SerializeField] private Transform _cardContentTransform;
         [SerializeField] private Animator _animator;
         [SerializeField] private ParticleSystem _fx;
-        private bool _cardIsExposed = false;
+        private bool _cardIsExposed = true;
+        private bool _rejectClicks = false;
         public Action<CardView> OnCardExposed;
         public string CardName { get; private set; }
         public ParticleSystem Fx => _fx;
@@ -29,6 +30,7 @@ namespace MatchCardsGame
         public void Show()
         {
             _animator.SetTrigger("Show");
+            StartCoroutine(HandleClickRejectingWhileAnimating());
             _cardIsExposed = true;
             OnCardExposed?.Invoke(this);
         }
@@ -42,11 +44,20 @@ namespace MatchCardsGame
             {
                 _animator.SetTrigger("Hide");
             }
+            StartCoroutine(HandleClickRejectingWhileAnimating());
             _cardIsExposed = false;
         }
         public void OnMouseDown()
         {
+            if(_rejectClicks) return;
             if(!_cardIsExposed) Show();
+        }
+        private IEnumerator HandleClickRejectingWhileAnimating()
+        {
+            _rejectClicks = true;
+            var currentAnimationClip = _animator.GetCurrentAnimatorClipInfo(0)[0].clip;
+            yield return new WaitForSeconds(currentAnimationClip.length);
+            _rejectClicks = false;
         }
     }
 }
