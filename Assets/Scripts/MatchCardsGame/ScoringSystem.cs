@@ -69,6 +69,7 @@ namespace MatchCardsGame
         }
         private void OnGameEnds(bool isWin)
         {
+            if (_score <= 0) return;
             var bestScore = PlayerPrefs.GetInt(string.Format("{0}_best_score", _game.GetType().Name), 0);
             if(_score > bestScore)
             {

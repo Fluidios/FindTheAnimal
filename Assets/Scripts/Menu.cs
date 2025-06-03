@@ -9,6 +9,7 @@ namespace Core
     {
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _continueButton;
+        [SerializeField] private Button _nextLevelButton;
         [SerializeField] private Button _clearSaveButton;
         [SerializeField] private Game _game;
 
@@ -17,6 +18,7 @@ namespace Core
         {
             _playButton.onClick.AddListener(OnPlayButtonClicked);
             _continueButton.onClick.AddListener(OnContinueButtonClicked);
+            _nextLevelButton.onClick.AddListener(OnPlayButtonClicked);
             _clearSaveButton.onClick.AddListener(OnClearSaveButtonClicked);
             _game.OnGameEnds += OnGameEnds;
             SetMenu(true);
